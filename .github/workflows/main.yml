@@ -31,8 +31,11 @@ jobs:
       - name: Start containers
         run: docker-compose -f "docker-compose.yml" up -d --build
         
+      - name: See the Runnig containers
+        run: docker ps 
+
       - name: Run tests
-        run: docker-compose run app "python manage.py test && flake8"
+        run: docker-compose run app python manage.py test
         
       - name: Stop
         run: docker-compose down
