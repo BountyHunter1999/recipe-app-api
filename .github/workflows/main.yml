@@ -29,7 +29,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Start containers and flake8
-        run: docker-compose -f "docker-compose.yml" up --build && flake8
+        run: docker-compose run app python manage.py test && flake8
         
       - name: See the Runnig containers
         run: docker ps 
