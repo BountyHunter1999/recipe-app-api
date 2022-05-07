@@ -25,14 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
         uses: actions/checkout@v3
-        
-      - name: Install flake8
-        run: pip install flake8
-      
       
       # Runs a single command using the runners shell
-      - name: Start containers and flake8
-        run: docker-compose run app python manage.py test && flake8
+      - name: Run test in docker container and flake8
+        run: docker-compose run --rm app sh -c "python manage.py test && flake8"
         
       - name: See the Runnig containers
         run: docker ps -a
