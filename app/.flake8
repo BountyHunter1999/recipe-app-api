@@ -1,8 +1,7 @@
 [flake8]
 exclude =
-    .git,
-    .gitignore,
-    *.pot,
-    *.py[co],
     __pycache__,
-    settings.py
+    settings.py,
+    migrations,
+    __pycache__,
+    manage.py,
